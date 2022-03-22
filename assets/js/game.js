@@ -79,12 +79,6 @@ var fight = function(enemyName) {
 
 /*------------------------------ Entering the "for" loop into the game ------------------------------------------------------------------*/
 
-for(var i = 0; i <enemyNames.length; i++) {
-  fight(enemyNames[i]);
-}
-
-// I'm in the main now 
-
 for (var i = 0; i < enemyNames.length; i++) {
   var pickedEnemyName = enemyNames[i];
   enemyHealth = 50;

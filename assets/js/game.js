@@ -81,5 +81,5 @@ for (var i = 0; i < pickedEnemyName.length; i++) {
  fight(pickedEnemyName[i]);
 }
 
- // i'm in develop branch
+ // i'm in main branch
 

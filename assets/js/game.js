@@ -78,4 +78,4 @@ for(var i = 0; i <enemyNames.length; i++) {
   fight(enemyNames[i]);
 }
 
-// I'm in the develop now 
+// I'm in the main now 

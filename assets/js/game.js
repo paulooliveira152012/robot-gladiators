@@ -47,7 +47,7 @@ var fight = function(enemyName) {
      // award player money for winning
      playerMoney = playerMoney + 20;
      // leave while() loop since enemy is dead
-     break;
+    //  break; breakpoint no longer needed
    } else {
      window.alert(enemyName + ' still has ' + enemyHealth + ' health left.');
    }
@@ -62,7 +62,7 @@ var fight = function(enemyName) {
    if (playerHealth <= 0) {
      window.alert(playerName + ' has died!');
      // leave while() loop if player is dead
-     break;
+    //  break; breakpoint no longer needed
    } else {
      window.alert(playerName + ' still has ' + playerHealth + ' health left.');
    }

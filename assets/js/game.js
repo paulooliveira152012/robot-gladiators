@@ -81,7 +81,7 @@ for (var i = 0; i < pickedEnemyName.length; i++) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
   
       // pick new enemy to fight based on the index of the enemyNames array
-      var pickedEnemyName = enemyNames[i];
+      var pickedEnemy = pickedEnemyName[i];
   
       // reset enemyHealth before starting new fight
       enemyHealth = 50;
@@ -90,7 +90,7 @@ for (var i = 0; i < pickedEnemyName.length; i++) {
       // debugger;
   
       // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
-      fight(pickedEnemyName);
+      fight(pickedEnemy);
     } // if block  ends here ........
   // else block starts here .......
     else {

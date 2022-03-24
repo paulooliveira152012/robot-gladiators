@@ -149,5 +149,5 @@ var endGame = function () {
 // start the game when the page loads
 startGame();
 
-// i'm in main branch
+// i'm in develop branch
 // complete work until now

@@ -182,6 +182,8 @@ else {
 1. Why it seems like my initial variables at the top of the page isn't affecting
 the game at all, instead, the variables at variable "startGame" (which i assume would apply 
   only when restarting the game after it has ended) are?
+
+1. Why am I still being attacked by the the enemy even after he has been defeated?
 */
 
 

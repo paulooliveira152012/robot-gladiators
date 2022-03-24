@@ -173,10 +173,6 @@ else {
 // complete work until now
 
 
-
-
-
-
 /* notes and questions:
 1. Why it seems like my initial variables at the top of the page isn't affecting
 the game at all, instead, the variables at variable "startGame" (which i assume would apply 

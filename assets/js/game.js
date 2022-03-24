@@ -4,8 +4,8 @@
 //  * Defeat each enemy-robot
 //"LOSE" - Player robot's health is zero or less
 /*------------------------------ Global Variables ------------------------------------------------------------------*/
-var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
+var playerName = window.prompt("What is your robot's name?"); // 1st
+var playerHealth = 1000;
 var playerAttack = 10;
 var playerMoney = 10;
 // You can also log multiple values at once like this
@@ -14,6 +14,62 @@ var pickedEnemyName = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+var shop = function() {
+
+  window.alert('you have $ ' + playerMoney + " to spend!");
+  console.log("available money: $" + playerMoney);
+
+  // ask player what they'd like to do
+  var shopOptionPrompt = window.prompt(
+    "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+  );
+
+  // use switch to carry out action
+switch (shopOptionPrompt) {
+  case "refill":
+  case "REFILL": //new case
+
+    if (playerMoney >= 7) {
+      window.alert("Refilling player's health by 20 for 7 dollars.");
+  
+      // increase health and decrease money
+      playerHealth = playerHealth + 20;
+      playerMoney = playerMoney - 7;
+    }
+    else {
+      window.alert("You don't have enough money!");
+    }
+  
+    break;
+  case "upgrade":
+  case "UPGRADE":
+    if (playerMoney >= 7) {
+      window.alert("Upgrading player's attack by 6 for 7 dollars.");
+  
+     // increase attack and decrease money
+      playerAttack = playerAttack + 6;
+      playerMoney = playerMoney - 7;
+    }
+    else {
+      window.alert("You don't have enough money!");
+    }
+  
+    break;
+  
+  case "leave":
+  case "LEAVE":
+    window.alert("Leaving the store.");
+
+    // do nothing, so function will end
+    break;
+  default:
+    window.alert("You did not pick a valid option. Try again.");
+
+    // call shop() again to force player to pick a valid option
+    shop();
+    break;
+}
+};
 
 /*--------Fight function (before the "for" loop because it will be called inside the loop) ------------------------------------------------------------------*/
 var fight = function (enemyName) {
@@ -90,7 +146,8 @@ var fight = function (enemyName) {
 /*------------------------------ Entering the "for" loop into the game ------------------------------------------------------------------*/
 /*------------------------------ fight each enemy-robot by looping over them and fighting them one at a time ----------------------------*/
 //function to start the game
-var startGame = function () {
+
+var startGame = function () { //3rd (loops for each player)
   // reset player stats
   playerHealth = 100;
   playerAttack = 10;
@@ -109,10 +166,21 @@ var startGame = function () {
     console.log(pickedEnemyName[i]);
 
     enemyHealth = 50;
+
     fight(pickedEnemyName[i]);
 
-    fight(pickedEnemyName);
-  }
+    // if we're not at the last enemy in the array
+    // if player is still alive and we're not at the last enemy in the array
+    if (playerHealth > 0 && i < pickedEnemyName.length - 1) {
+      // ask if player wants to use the store before next round
+      var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+    
+      // if yes, take them to the store() function
+      if (storeConfirm) {
+        shop();
+      }
+    }
+}
 
   // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
   endGame()
@@ -144,7 +212,10 @@ var endGame = function () {
 };
 
 // start the game when the page loads
-startGame();
+startGame(); //2nd
+
+
+
 
 /*------------------adding mwindow alert to see how you did during the game------------------------------------------------------*/
 var endGame = function() {
@@ -165,21 +236,28 @@ if (playAgainConfirm) {
 else {
   window.alert("Thank you for playing Robot Gladiators! Come back soon!");
 }
-
 }
 
 
+<<<<<<< HEAD
 // i'm in feature/random branch
+=======
+
+// i'm in main branch
+>>>>>>> main
 // complete work until now
-
-
-
-
 
 
 /* notes and questions:
 1. Why it seems like my initial variables at the top of the page isn't affecting
 the game at all, instead, the variables at variable "startGame" (which i assume would apply 
   only when restarting the game after it has ended) are?
+
+2. Why am I still being attacked by the the enemy even after he has been defeated?
+
+3. On "check enemy's health" instead of making the attack value = null after oponent has died
+I want to prevent the attack from happening at all
+
 */
+
 

@@ -169,7 +169,7 @@ else {
 }
 
 
-// i'm in develop branch
+// i'm in develop/shop branch
 // complete work until now
 
 
@@ -182,4 +182,5 @@ else {
 the game at all, instead, the variables at variable "startGame" (which i assume would apply 
   only when restarting the game after it has ended) are?
 */
+
 

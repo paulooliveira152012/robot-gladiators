@@ -169,7 +169,7 @@ else {
 }
 
 
-// i'm in develop branch
+// i'm in feature/initial-game branch
 // complete work until now
 
 

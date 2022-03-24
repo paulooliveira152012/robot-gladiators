@@ -169,7 +169,7 @@ else {
 }
 
 
-// i'm in develop/shop branch
+// i'm in feature/shop branch
 // complete work until now
 
 

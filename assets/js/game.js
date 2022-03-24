@@ -112,7 +112,7 @@ var startGame = function () {
     fight(pickedEnemyName[i]);
 
     fight(pickedEnemyName);
-  }
+}
 
   // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
   endGame()
@@ -165,8 +165,16 @@ if (playAgainConfirm) {
 else {
   window.alert("Thank you for playing Robot Gladiators! Come back soon!");
 }
-
 }
+
+var shop = function() {
+  console.log("entered the shop");
+};
+
+
+//STUCK - while trying to add the store feature I started getting error messages.
+
+
 
 
 // i'm in feature/shop branch

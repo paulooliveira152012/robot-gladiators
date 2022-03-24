@@ -114,11 +114,8 @@ var startGame = function () {
     fight(pickedEnemyName);
   }
 
-  // play again
-  // startGame();
-console.log("testing")
   // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
-  endGame();
+  endGame()
 };
 
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
@@ -149,5 +146,40 @@ var endGame = function () {
 // start the game when the page loads
 startGame();
 
+/*------------------adding mwindow alert to see how you did during the game------------------------------------------------------*/
+var endGame = function() {
+  // if player is still alive, player wins!
+  if (playerHealth > 0) {
+    window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
+  } 
+  else {
+    window.alert("You've lost your robot in battle.");
+  }
+  // ask player if they'd like to play again
+var playAgainConfirm = window.confirm("Would you like to play again?");
+
+if (playAgainConfirm) {
+  // restart the game
+  startGame();
+} 
+else {
+  window.alert("Thank you for playing Robot Gladiators! Come back soon!");
+}
+
+}
+
+
 // i'm in develop branch
 // complete work until now
+
+
+
+
+
+
+/* notes and questions:
+1. Why it seems like my initial variables at the top of the page isn't affecting
+the game at all, instead, the variables at variable "startGame" (which i assume would apply 
+  only when restarting the game after it has ended) are?
+*/
+

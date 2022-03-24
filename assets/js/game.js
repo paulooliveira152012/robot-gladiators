@@ -4,8 +4,8 @@
 //  * Defeat each enemy-robot
 //"LOSE" - Player robot's health is zero or less
 /*------------------------------ Global Variables ------------------------------------------------------------------*/
-var playerName = window.prompt("What is your robot's name?");
-var playerHealth = 100;
+var playerName = window.prompt("What is your robot's name?"); // 1st
+var playerHealth = 1000;
 var playerAttack = 10;
 var playerMoney = 10;
 // You can also log multiple values at once like this
@@ -14,6 +14,10 @@ var pickedEnemyName = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+var shop = function() {
+  console.log("entered the shop");
+  window.alert("You have entered the shop")
+};
 
 /*--------Fight function (before the "for" loop because it will be called inside the loop) ------------------------------------------------------------------*/
 var fight = function (enemyName) {
@@ -58,6 +62,8 @@ var fight = function (enemyName) {
       // award player money for winning
       playerMoney = playerMoney + 20;
 
+      shop()
+
       // leave while() loop since enemy is dead
       //  break; breakpoint no longer needed
     } else {
@@ -90,7 +96,7 @@ var fight = function (enemyName) {
 /*------------------------------ Entering the "for" loop into the game ------------------------------------------------------------------*/
 /*------------------------------ fight each enemy-robot by looping over them and fighting them one at a time ----------------------------*/
 //function to start the game
-var startGame = function () {
+var startGame = function () { //3rd (loops for each player)
   // reset player stats
   playerHealth = 100;
   playerAttack = 10;
@@ -109,6 +115,7 @@ var startGame = function () {
     console.log(pickedEnemyName[i]);
 
     enemyHealth = 50;
+
     fight(pickedEnemyName[i]);
 }
 
@@ -142,7 +149,7 @@ var endGame = function () {
 };
 
 // start the game when the page loads
-startGame();
+startGame(); //2nd
 
 /*------------------adding mwindow alert to see how you did during the game------------------------------------------------------*/
 var endGame = function() {
@@ -165,9 +172,7 @@ else {
 }
 }
 
-var shop = function() {
-  console.log("entered the shop");
-};
+
 
 // i'm in feature/shop branch
 // complete work until now

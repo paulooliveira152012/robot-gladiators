@@ -171,13 +171,7 @@ var shop = function() {
   console.log("entered the shop");
 };
 
-
-//STUCK - while trying to add the store feature I started getting error messages.
-
-
-
-
-// i'm in feature/shop branch
+// i'm in feature/initial-game branch
 // complete work until now
 
 

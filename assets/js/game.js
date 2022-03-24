@@ -110,8 +110,6 @@ var startGame = function () {
 
     enemyHealth = 50;
     fight(pickedEnemyName[i]);
-
-    fight(pickedEnemyName);
 }
 
   // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
@@ -171,12 +169,8 @@ var shop = function() {
   console.log("entered the shop");
 };
 
-// i'm in feature/initial-game branch
+// i'm in feature/shop branch
 // complete work until now
-
-
-
-
 
 
 /* notes and questions:

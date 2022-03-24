@@ -174,7 +174,7 @@ else {
 
 
 
-// i'm in feature shop branch
+// i'm in main branch
 // complete work until now
 
 

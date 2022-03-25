@@ -14,6 +14,14 @@ var pickedEnemyName = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+  // function to generate a random numeric value
+  // this is a global function that can be aclled locally and adjusted with local paramters.
+  var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+  
+    return value;
+  };
+
 var shop = function() {
 
   window.alert('you have $ ' + playerMoney + " to spend!");
@@ -94,11 +102,11 @@ var fight = function (enemyName) {
       }
     }
 
-    // remove enemy's health by subtracting the amount set in the playerAttack variable
-    enemyHealth = Math.max(0, enemyHealth - playerAttack);
+ // generate random damage value based on player's attack power
+  var damage = randomNumber(playerAttack - 3, playerAttack);
+    enemyHealth = Math.max(0, enemyHealth - damage);
     console.log(
-      playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
-
+    playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
     );
 
     // check enemy's health
@@ -109,13 +117,14 @@ var fight = function (enemyName) {
       playerMoney = playerMoney + 20;
 
       // leave while() loop since enemy is dead
-      //  break; breakpoint no longer needed
+       break;
     } else {
       window.alert(enemyName + " still has " + enemyHealth + " health left.");
     }
 
-    // remove players's health by subtracting the amount set in the enemyAttack variable
-    playerHealth = Math.max(0, playerHealth - enemyAttack) ;
+   // generate random damage value based on player's attack power
+    var damage = randomNumber(playerAttack - 3, playerAttack);
+    playerHealth = Math.max(0, enemyHealth - damage);
     console.log(
       enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
     );
@@ -156,7 +165,7 @@ var startGame = function () { //3rd (loops for each player)
     // avoiding decimal numbers by using Math.floor() --> Math.floor()
     // the random number will vary from 0 to 20 --> math.random()21 
     // Making the random number at least 40 by adding the +40
-    enemyHealth = Math.floor(Math.random()* 21) + 40;
+    enemyHealth = randomNumber(40, 60);
 
     fight(pickedEnemyName[i]);
 
@@ -180,7 +189,7 @@ var startGame = function () { //3rd (loops for each player)
 /*---------------------------------------------------------------------------------------------------------------------------------------*/
 
 // function to end the entire game   !!!! WHERE do I place this block of code?
-var endGame = function () {
+var endGame = function() {
   // if player is still alive, player wins!
   if (playerHealth > 0) {
     window.alert(
@@ -209,6 +218,33 @@ startGame(); //2nd
 
 
 /*------------------adding mwindow alert to see how you did during the game------------------------------------------------------*/
+
+
+
+// i'm in feature/random branch
+// complete work until now
+
+
+/* notes and questions:
+1. Why it seems like my initial variables at the top of the page isn't affecting
+the game at all, instead, the variables at variable "startGame" (which i assume would apply 
+  only when restarting the game after it has ended) are?
+
+2. Why am I still being attacked by the the enemy even after he has been defeated?
+
+3. On "check enemy's health" instead of making the attack value = null after oponent has died
+I want to prevent the attack from happening at all
+
+*/
+
+
+
+
+
+/*
+this block of code was being repeated! this one was right below the original one
+
+
 var endGame = function() {
   // if player is still alive, player wins!
   if (playerHealth > 0) {
@@ -229,21 +265,4 @@ else {
 }
 }
 
-
-// i'm in feature/random branch
-// complete work until now
-
-
-/* notes and questions:
-1. Why it seems like my initial variables at the top of the page isn't affecting
-the game at all, instead, the variables at variable "startGame" (which i assume would apply 
-  only when restarting the game after it has ended) are?
-
-2. Why am I still being attacked by the the enemy even after he has been defeated?
-
-3. On "check enemy's health" instead of making the attack value = null after oponent has died
-I want to prevent the attack from happening at all
-
 */
-
-

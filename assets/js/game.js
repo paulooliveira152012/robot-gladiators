@@ -96,7 +96,7 @@ var fight = function(enemy) {
 
    // remove players's health by subtracting the amount set in the enemy.attack variable
     var damage = randomNumber(enemy.attack - 3, enemy.attack);
-    playerInfo.health = Math.max(0, playerInfo.health - damage);
+    playerInfo.health = Math.max(0, enemy.health - damage);
     console.log(
       enemy.name + " attacked " + playerInfo.name + ". " + playerInfo.name + " now has " + playerInfo.health + " health remaining."
     );
@@ -113,11 +113,29 @@ var fight = function(enemy) {
 }; // end of fight function
 /*------------------------------ Entering the "for" loop into the game ------------------------------------------------------------------*/
 /*------------------------------ fight each enemy-robot by looping over them and fighting them one at a time ----------------------------*/
-//function to start the game
 
+//---------------------------Getting valid player name---------------------------
+// function to set name
+var getPlayerName = function() {
+  var name = "";
+
+// ***************************************
+while (name === "" || name === null) {
+  name = prompt("What is your robot's name?");
+}
+// ***************************************
+
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
+//---------------------------function to start the game---------------------------
+
+
+/* GAME INFORMATION / VARIABLES */
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
-  health: 200,
+  name: getPlayerName(),
+  health: 100,
   attack: 10,
   money: 10,
   reset: function() {

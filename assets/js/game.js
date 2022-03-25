@@ -5,7 +5,7 @@
 //"LOSE" - Player robot's health is zero or less
 /*------------------------------ Global Variables ------------------------------------------------------------------*/
 var playerName = window.prompt("What is your robot's name?"); // 1st
-var playerHealth = 1000;
+var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 // You can also log multiple values at once like this
@@ -88,23 +88,17 @@ var fight = function (enemyName) {
       if (confirmSkip) {
         window.alert(playerName + " has decided to skip this fight. Goodbye!");
         // subtract money from playerMoney for skipping
-        playerMoney = playerMoney - 10;
+        playerMoney = Math.max(0, playerMoney) - 10;
         console.log("playerMoney", playerMoney);
         break;
       }
     }
 
     // remove enemy's health by subtracting the amount set in the playerAttack variable
-    enemyHealth = enemyHealth - playerAttack;
+    enemyHealth = Math.max(0, enemyHealth - playerAttack);
     console.log(
-      playerName +
-        " attacked " +
-        enemyName +
-        ". " +
-        enemyName +
-        " now has " +
-        enemyHealth +
-        " health remaining."
+      playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+
     );
 
     // check enemy's health
@@ -121,16 +115,9 @@ var fight = function (enemyName) {
     }
 
     // remove players's health by subtracting the amount set in the enemyAttack variable
-    playerHealth = playerHealth - enemyAttack;
+    playerHealth = Math.max(0, playerHealth - enemyAttack) ;
     console.log(
-      enemyName +
-        " attacked " +
-        playerName +
-        ". " +
-        playerName +
-        " now has " +
-        playerHealth +
-        " health remaining."
+      enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
     );
 
     // check player's health
@@ -165,7 +152,11 @@ var startGame = function () { //3rd (loops for each player)
     }
     console.log(pickedEnemyName[i]);
 
-    enemyHealth = 50;
+    //making enemyHealth a rendom number up to 59 by entering (Math.random()*21+40)
+    // avoiding decimal numbers by using Math.floor() --> Math.floor()
+    // the random number will vary from 0 to 20 --> math.random()21 
+    // Making the random number at least 40 by adding the +40
+    enemyHealth = Math.floor(Math.random()* 21) + 40;
 
     fight(pickedEnemyName[i]);
 
@@ -239,12 +230,7 @@ else {
 }
 
 
-<<<<<<< HEAD
 // i'm in feature/random branch
-=======
-
-// i'm in main branch
->>>>>>> main
 // complete work until now
 
 

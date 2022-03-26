@@ -198,13 +198,15 @@ while (name === "" || name === null) {
 
 
 /* GAME INFORMATION / VARIABLES */
+//the startGame function will refer to this playerInfo in the first attempt
 var playerInfo = {
   name: getPlayerName(),
-  health: 50,
+  health: 100,
   attack: 10,
   money: 10,
+// AFTER game is over, RESETING the game will git the player a health of 90 instead of 100
   reset: function() {
-    this.health = 100;
+    this.health = 90;
     this.money = 10;
     this.attack = 10;
   }, // comma!

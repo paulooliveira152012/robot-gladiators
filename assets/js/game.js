@@ -99,6 +99,7 @@ var fight = function(enemy) {
     isPlayerTurn = false;
   }
 
+// adding randomness
   while (playerInfo.health > 0 && enemy.health > 0) {
     // keep track of who goes first
     var isPlayerTurn = true;
@@ -116,6 +117,7 @@ var fight = function(enemy) {
       }
 
       var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+//_______________________________________________________________________________________
 
       // remove enemy's health by subtracting the amount we set in the damage variable
       enemy.health = Math.max(0, enemy.health - damage);

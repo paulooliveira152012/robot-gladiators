@@ -100,6 +100,14 @@ var fight = function(enemy) {
   }
 
   while (playerInfo.health > 0 && enemy.health > 0) {
+    // keep track of who goes first
+    var isPlayerTurn = true;
+
+    // randomly change turn order
+    if (Math.random() > 0.5) {
+      isPlayerTurn = false;
+    }
+    
     if (isPlayerTurn) {
       // ask player if they'd like to fight or skip using fightOrSkip function
       if (fightOrSkip()) {

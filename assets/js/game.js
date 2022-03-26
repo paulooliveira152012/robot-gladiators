@@ -200,7 +200,7 @@ while (name === "" || name === null) {
 /* GAME INFORMATION / VARIABLES */
 var playerInfo = {
   name: getPlayerName(),
-  health: 100,
+  health: 50,
   attack: 10,
   money: 10,
   reset: function() {
@@ -248,7 +248,6 @@ var enemyInfo = [
 
 var startGame = function () { //3rd (loops for each player)
   // reset player stats
- playerInfo.reset();
   for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
       // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
@@ -314,6 +313,7 @@ var endGame = function() {
   var playAgainConfirm = window.confirm("Would you like to play again?");
 
   if (playAgainConfirm) {
+    playerInfo.reset()
     startGame();
   } 
   else {
